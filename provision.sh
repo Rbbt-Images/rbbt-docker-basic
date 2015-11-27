@@ -43,7 +43,7 @@ gem install /tmp/lockfile-2.1.4.gem
 
 
 
-exit
+
 
 ####################
 # USER CONFIGURATION
