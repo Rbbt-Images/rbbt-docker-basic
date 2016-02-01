@@ -2,18 +2,17 @@
 
 echo "RUNNING PROVISION"
 echo
-echo "CMD: git/rbbt-image/bin/build_rbbt_provision_sh.rb -ss -sr -sb"
+echo "CMD: build_rbbt_provision_sh.rb -ss -sr -sb --nocolor --nobar"
 
 echo "1. Provisioning base system"
-echo
 echo SKIPPED
+echo
 
 echo "2. Setting up ruby"
-echo
 echo SKIPPED
+echo
 
 echo "3. Setting up gems"
-echo
 #!/bin/bash -x
 
 # RUBY GEMS and RBBT
@@ -46,7 +45,6 @@ gem install /tmp/lockfile-2.1.4.gem
 
 
 echo "4. Configuring user"
-echo
 ####################
 # USER CONFIGURATION
 
@@ -71,6 +69,8 @@ echo "4.1. Loading custom variables"
 export RBBT_LOG="0"
 export BOOTSTRAP_WORKFLOWS="Enrichment Translation Sequence MutationEnrichment"
 export REMOTE_RESOURCES="KEGG"
+export RBBT_NOCOLOR="true"
+export RBBT_NO_PROGRESS="true"
 
 echo "4.2. Loading default variables"
 #!/bin/bash -x
@@ -120,6 +120,7 @@ su -l -c "bash $user_script" rbbt
 echo "5. Bootstrapping workflows as 'rbbt'"
 echo
 echo SKIPPED
+echo
 
 # CODA
 # ====
