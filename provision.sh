@@ -19,9 +19,9 @@ echo "3. Setting up gems"
 # =================
 
 export REALLY_GEM_UPDATE_SYSTEM=true
-env REALLY_GEM_UPDATE_SYSTEM=true gem update --system
-gem install --force ZenTest
-gem install --force RubyInline
+env REALLY_GEM_UPDATE_SYSTEM=true gem update --no-ri --no-rdoc --system
+gem install --force --no-ri --no-rdoc ZenTest
+gem install --force --no-ri --no-rdoc RubyInline
 
 # R (extra config in gem)
 gem install --conservative --no-ri --no-rdoc rsruby -- --with-R-dir=/usr/lib/R --with-R-include=/usr/share/R/include --with_cflags="-fPIC -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wall -fno-strict-aliasing"
@@ -32,15 +32,16 @@ gem install --conservative --force --no-ri --no-rdoc rjb
 
 # Rbbt and some optional gems
 gem install --no-ri --no-rdoc --force \
-    rbbt-util rbbt-rest rbbt-dm rbbt-text rbbt-sources rbbt-phgx rbbt-GE \
     tokyocabinet \
+    ruby-prof \
+    rbbt-util rbbt-rest rbbt-dm rbbt-text rbbt-sources rbbt-phgx rbbt-GE \
     rserve-client \
     uglifier therubyracer kramdown\
-    ruby-prof
+    puma
 
 # Get good version of lockfile
 wget http://ubio.bioinfo.cnio.es/people/mvazquezg/lockfile-2.1.4.gem -O /tmp/lockfile-2.1.4.gem
-gem install /tmp/lockfile-2.1.4.gem
+gem install --no-ri --no-rdoc /tmp/lockfile-2.1.4.gem
 
 
 
@@ -127,6 +128,8 @@ echo
 
 apt-get clean
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
 
 echo
 echo "Installation done."
