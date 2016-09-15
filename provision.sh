@@ -36,7 +36,7 @@ gem install --no-ri --no-rdoc --force \
     ruby-prof \
     rbbt-util rbbt-rest rbbt-dm rbbt-text rbbt-sources rbbt-phgx rbbt-GE \
     rserve-client \
-    uglifier therubyracer kramdown\
+    uglifier therubyracer kramdown mimemagic\
     puma
 
 # Get good version of lockfile
