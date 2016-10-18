@@ -36,13 +36,15 @@ gem install --no-ri --no-rdoc --force \
     ruby-prof \
     rbbt-util rbbt-rest rbbt-dm rbbt-text rbbt-sources rbbt-phgx rbbt-GE \
     rserve-client \
-    uglifier therubyracer kramdown mimemagic\
+    uglifier therubyracer kramdown\
     puma
 
 # Get good version of lockfile
 wget http://ubio.bioinfo.cnio.es/people/mvazquezg/lockfile-2.1.4.gem -O /tmp/lockfile-2.1.4.gem
 gem install --no-ri --no-rdoc /tmp/lockfile-2.1.4.gem
 
+# Extra things for web interface
+gem install --no-ri --no-rdoc bio-svgenes mimemagic
 
 
 echo "4. Configuring user"
@@ -127,7 +129,7 @@ echo
 # ====
 
 apt-get clean
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc /usr/share/man /usr/local/share/ri
 
 
 
